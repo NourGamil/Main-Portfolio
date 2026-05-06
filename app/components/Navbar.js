@@ -141,7 +141,7 @@ navLinks.forEach((link, i) => {
     //     </ul>
     //   </nav>
     // </div>
-    <div className="fixed top-0 left-0 flex justify-center w-full pt-4 md:pt-6 z-[100] text-[var(--tx1-1)] px-2 sm:px-4">
+    <div className="fixed top-0 left-0 flex justify-center w-full pt-4 md:pt-2 z-[100] text-[var(--tx1-1)] px-2 sm:px-4">
   <nav 
     ref={navRef}
     className="relative flex items-center 
