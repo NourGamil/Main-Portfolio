@@ -3,8 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
+  --tx0:#1d1d1d;
+  --tx1:#ffffff;
+  --tx1-1:#fffce1;
+  --tx2:#fdc700;
+  --tx3:#0070F3;
+  --tx4:#ff4500;
+  --tx5:#0ae448;
+  --tx6:#903C4C;
+  --btn1:#004973;
+  --btn2:#c0f500;
+}   
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -18,9 +27,81 @@
     --foreground: #ededed;
   }
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+ 
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--tx1-1);
+  overflow-x: hidden;
+      -webkit-touch-callout: none; 
+    -webkit-user-select: none;   
+    -khtml-user-select: none;    
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none;   
+} 
+.snapper{
+  height: 100vh;
 }
+/* This ensures the 3D canvas is always a layer behind the text */
+.canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; 
+  pointer-events: none; /* Allows mouse to still interact with text/buttons */
+}
+
+/* Allow the horizontal wrapper to be the only exception */
+.projects-wrapper {
+  overflow: visible; 
+}
+@keyframes scrollDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+} 
+.project-card h4, 
+.project-card p {
+  /* This creates a subtle dark 'glow' behind text for maximum legibility */
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+.stroke-text {
+  /* Outlined text is the hardest to see; let's give it a solid backing */
+  paint-order: stroke fill;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+} 
+
+nav a {
+  text-shadow: 0 0 0px transparent;
+  transition: text-shadow 0.5s ease;
+}
+
+/* Custom 3D Glow for the active Link */
+.nav-link-active {
+  color: #fdc700 !important;
+  text-shadow: 0 0 15px rgba(253, 199, 0, 0.6);
+  transition: all 0.5s ease;
+}
+   
+/* Make the navbar itself feel more 'Physical' */
+nav {
+  box-shadow: 
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.reveal-mask-container {
+  /* This prevents the yellow text from being visible outside the lens radius */
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+}
+
+/* Ensure the text doesn't wrap differently between layers */
+.showcase-title, .reveal-mask-container h1 {
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+ 
