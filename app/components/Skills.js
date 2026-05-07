@@ -124,17 +124,17 @@ useEffect(() => {
     <section 
   ref={sectionRef} 
   id="skills" 
-  className="snapper relative h-[100dvh] w-full flex flex-col justify-center px-4 md:px-[10vw] bg-black/65 text-[var(--tx1-1)] overflow-hidden"
+  className="snapper content-section relative h-[100dvh] w-full flex flex-col justify-center px-4 md:px-[10vw] bg-black/65 text-[var(--tx1-1)] overflow-hidden"
 >
   {/* 01. Section Label - Tightened margin for mobile */}
-  <h2 className="text-[#fdc700] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-[10px] md:text-sm mb-4 md:mb-16">
+  <h2 className="fadeRightAll relative left-[-100px] opacity-0 text-[#fdc700] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-[10px] md:text-sm mb-4 md:mb-16">
     03. Arsenal
   </h2>
 
   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-16 items-start">
     
     {/* FRONT-END CARD */}
-    <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
+    <div className="fadeRightAll relative left-[-100px] opacity-0 p-4 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
       <h3 className="text-sm md:text-2xl font-black uppercase mb-4 md:mb-10 text-[var(--tx1-1)]">
         Front-End <span className="text-[var(--tx3)] text-[10px] md:text-lg">(Strong Points)</span>
       </h3>
@@ -149,7 +149,7 @@ useEffect(() => {
     <div className="flex flex-col gap-4 md:gap-10">
       
       {/* Back-End Card */}
-      <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
+      <div className="fadeDownAll relative top-[-100px] opacity-0  p-4 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
         <h3 className="text-sm md:text-2xl font-black uppercase mb-3 md:mb-8 text-[var(--tx1-1)]">Back-End</h3>
         
         {/* 2 SKILLS PER LINE ON MOBILE: grid-cols-2 */}
@@ -159,7 +159,7 @@ useEffect(() => {
       </div>
 
       {/* Creative Tools Card */}
-      <div className="p-4 md:p-8 rounded-2xl md:rounded-3xl bg-[var(--btn2)]/10 border border-[var(--btn2)]/20 backdrop-blur-md">
+      <div className="fadeUpAll relative top-[100px] opacity-0 p-4 md:p-8 rounded-2xl md:rounded-3xl bg-[var(--btn2)]/10 border border-[var(--btn2)]/20 backdrop-blur-md">
         <h3 className="text-xs md:text-xl font-black uppercase tracking-tighter mb-3 md:mb-6 text-[var(--btn2)]">Creative Tools</h3>
         <div className="flex flex-wrap gap-2 md:gap-6">
           {['Photoshop', 'Blender', 'Figma'].map(tool => (
