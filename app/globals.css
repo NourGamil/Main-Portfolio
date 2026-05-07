@@ -13,7 +13,7 @@
   --tx6:#903C4C;
   --btn1:#004973;
   --btn2:#c0f500;
-}   
+}     
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -104,4 +104,8 @@ nav {
   pointer-events: none;
   user-select: none;
 }
- 
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}

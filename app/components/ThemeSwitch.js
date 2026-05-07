@@ -12,23 +12,21 @@ export default function ThemeSwitch() {
     const newTheme = !isDark;
     setIsDark(newTheme);
     
-    // GSAP Morphing Animation
     gsap.to(moonMaskRef.current, {
-      x: newTheme ? 12 : 30, // Moves the "shadow" to create a crescent
+      x: newTheme ? 12 : 30, 
       y: newTheme ? -5 : -10,
       duration: 0.6,
       ease: "power3.out",
     });
 
     gsap.to(switchRef.current, {
-      backgroundColor: newTheme ? "#fde047" : "#fdc700", // Shift gold tone
+      backgroundColor: newTheme ? "#fde047" : "#fdc700", 
       boxShadow: newTheme 
         ? "0 0 20px rgba(253, 224, 71, 0.6)" 
         : "0 0 10px rgba(253, 199, 0, 0.2)",
       duration: 0.6
     });
 
-    // Update the document class for Tailwind dark: modifiers
     if (newTheme) {
       document.documentElement.classList.add("dark");
     } else {
@@ -42,12 +40,10 @@ export default function ThemeSwitch() {
         onClick={toggleTheme}
         className="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden transition-transform active:scale-90"
       >
-        {/* The Main Celestial Body */}
         <div 
           ref={switchRef}
           className="w-7 h-7 rounded-full bg-[#fdc700] relative shadow-lg"
         >
-          {/* The "Moon Shadow" that slides in */}
           <div 
             ref={moonMaskRef}
             className="absolute w-7 h-7 rounded-full bg-[#111] translate-x-[30px]"

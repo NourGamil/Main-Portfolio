@@ -84,7 +84,7 @@ let homeTl = gsap.timeline();
         },"-=1")
 
         ScrollTrigger.create({
-          trigger: "#about", // Change this to your section class/id
+          trigger: "#about",
           start: "top 50%",
           onEnter: () => {
           gsap.timeline()
@@ -227,6 +227,24 @@ magneticWrappers.forEach((wrapper) => {
   });
 });
 
+/*------------------------------------ about Section------------------------------- */
+gsap.to(".thought-card", {
+  y: -20, // Move up and down
+  duration: 2,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut"
+});
+
+// Subtle rotating glow inside
+gsap.to(".thought-glow", {
+  opacity: 0.4,
+  scale: 1.5,
+  duration: 3,
+  repeat: -1,
+  yoyo: true,
+  ease: "power1.inOut"
+});
 /*------------------------------------ works Section------------------------------- */
 
 let colorsChangerTl = gsap.timeline({repeat:-1});
@@ -272,16 +290,13 @@ const lens = document.querySelector(".mouse-lens");
 
   return (
 <main ref={containerRef}>
-    {/* Hero Section */}
+    {/* Landing Section */}
     <section 
       id="home" 
       className="snapper relative h-[100dvh] w-full flex flex-col justify-center px-6 md:px-[10vw] z-10 overflow-hidden"
     >
       
-      {/* Grid Background */}
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:30px_30px] md:bg-[size:40px_40px] pointer-events-none" />
-
-      {/* Technical Info (XL only) */}
       <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-end gap-6 font-mono text-[10px] text-gray-400 uppercase tracking-widest pointer-events-none">
         <div className="flex items-center gap-4 rotate-90 origin-right mb-20">
           <span className="w-12 h-[1px] bg-gray-300"></span>
@@ -294,7 +309,6 @@ const lens = document.querySelector(".mouse-lens");
         </div>
       </div>
 
-      {/* Content Wrapper: Added flex-1 and justify-center to keep it perfectly centered */}
       <div className="max-w-4xl flex flex-col gap-4 md:gap-[20px] justify-center">
         <div>
           <h2 className="fadeRight relative left-[-100px] opacity-0 text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm mb-2">
@@ -303,7 +317,6 @@ const lens = document.querySelector(".mouse-lens");
         </div>
         
         <div>
-          {/* Slightly tighter leading for mobile to save vertical space */}
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-[var(--tx0)] flex flex-col">
             <span className="fadeRight relative left-[-100px] opacity-0 inline-block">Nour Gamil</span>
             <span className="fadeRight relative left-[-100px] opacity-0 masterpiece-accent inline-block text-[var(--tx3)] drop-shadow-md">
@@ -339,7 +352,6 @@ const lens = document.querySelector(".mouse-lens");
         </div>
       </div>
 
-      {/* Scroll Indicator: Moved slightly up to ensure it's always above mobile nav bars */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-3 opacity-60">
         <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">Scroll</span>
         <div className="w-[2px] h-8 md:h-12 bg-gray-300 overflow-hidden relative">
@@ -360,7 +372,6 @@ const lens = document.querySelector(".mouse-lens");
           02. about
         </h2>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
         
         <div className="lg:col-span-7 space-y-4 md:space-y-8">
@@ -369,12 +380,10 @@ const lens = document.querySelector(".mouse-lens");
               Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
             </h1>
           </div>
-
           <div className="fadeUpAll relative top-[100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10 p-5 md:p-8 rounded-3xl shadow-2xl ">
             <p className="overflow-hidden text-sm md:text-lg text-[var(--tx1-1)] dark:text-gray-300 leading-relaxed line-clamp-4 md:line-clamp-none">
               I bridge the gap between complex 3D mathematics and clean UI design. Every pixel is intentional, every motion is calculated. I specialize in crafting seamless, interactive experiences where art and technology converge.
             </p>
-
             <div className="grid grid-cols-2 gap-4 mt-4 md:mt-8 pt-4 md:pt-8 border-t border-white/10 ">
               <div className="">
                 <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Experience</h4>
@@ -388,26 +397,61 @@ const lens = document.querySelector(".mouse-lens");
           </div>
         </div>
         <div className="lg:col-span-5 flex flex-col items-center justify-center gap-4 md:gap-8">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center gap-8">
+            <div 
+              className="fadeLeftAll relative left-[100px] opacity-0 3d-wrapper w-full max-w-[320px] h-[400px] flex items-center justify-center cursor-pointer"
+              style={{ perspective: "1200px" }}
+              onMouseMove={(e) => {
+                const { clientX, clientY, currentTarget } = e;
+                const { left, top, width, height } = currentTarget.getBoundingClientRect();
+                const x = (clientX - left) / width - 0.5;
+                const y = (clientY - top) / height - 0.5;
+                
+                gsap.to(currentTarget.querySelector(".cv-card"), {
+                  rotateY: x * 40,
+                  rotateX: -y * 40,
+                  scale: 1.05,
+                  duration: 0.6,
+                  ease: "power2.out"
+                });
+              }}
+              onMouseLeave={(e) => {
+                gsap.to(e.currentTarget.querySelector(".cv-card"), { 
+                  rotateX: 0, 
+                  rotateY: 0, 
+                  scale: 1, 
+                  duration: 1.2, 
+                  ease: "elastic.out(1, 0.5)" 
+                });
+              }}
+            >
+              <a 
+                href="/Nour Gamil CV.pdf" 
+                download 
+                className="cv-card group relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col items-center justify-between p-10 text-center overflow-hidden transition-colors hover:border-[var(--tx3)]/50"
+              >
+                <div className="absolute -inset-20 bg-[var(--tx3)] opacity-10 blur-[100px] group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
 
-          <div className="w-full h-[120px] md:h-[300px] relative group cursor-pointer flex flex-col justify-end items-center" onClick={() => {}}>
-            <div className="text-center">
-              <p className="fadeLeftAll relative left-[100px] opacity-0  text-[#fdc700] font-mono text-[9px] md:text-[10px] tracking-[0.3em] md:tracking-[0.5em] uppercase animate-pulse">
-                Click to activate
-              </p>
-              <h3 className="fadeLeftAll relative left-[100px] opacity-0  text-sm md:text-lg font-bold mt-1 dark:text-white">Make your thoughts come true</h3>
+                <div className="z-10">
+                  <p className="text-[var(--tx2)] font-mono text-[10px] tracking-[0.4em] uppercase ">
+                    Personal Archive
+                  </p>
+                </div>
+
+                <div className="relative z-10 w-24 h-24 flex items-center justify-center">
+                  <div className="absolute inset-0 border-4 border-dashed border-[var(--tx3)] rounded-full animate-[spin_15s_linear_infinite]" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--tx1-1)] group-hover:translate-y-2 transition-transform duration-500">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+                  </svg>
+                </div>
+
+                <div className="z-10 w-full">
+                  <h3 className="text-xl font-black text-[var(--btn2)] uppercase tracking-tighter mb-2">Download CV</h3>
+                  <div className="h-[2px] w-0 bg-[var(--btn2)] mx-auto group-hover:w-full transition-all duration-500 shadow-[0_0_10px_var(--tx3)]" />
+                </div>
+              </a>
             </div>
           </div>
-
-          <div className="fadeLeftAll relative left-[100px] opacity-0 w-full flex justify-center">
-              <div className="magnetic-wrap inline-block p-2 md:p-10 cursor-pointer">
-                <a href="/your-cv.pdf" download className="block cv-btn">
-                  <div className=" border-2 border-[var(--btn2)] text-[var(--btn2)] px-8 md:px-12 py-4 md:py-6 rounded-full text-lg md:text-xl font-bold uppercase hover:bg-[var(--btn2)] hover:text-white transition-colors duration-300">
-                    Download Cv
-                  </div>
-                </a>
-              </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -415,7 +459,7 @@ const lens = document.querySelector(".mouse-lens");
     <Skills />
     {/* Projects Section */}
     <section id="projects" className="relative bg-black/80 h-[400vh]">  
-      <div className="snapper content-section project-card w-full h-[100dvh] flex flex-col justify-center px-6 md:pl-[10vw] relative overflow-hidden">
+      <div className="snapper content-section project-card w-full h-[100dvh] flex flex-col justify-center px-6 md:pl-[10vw] relative ">
         <div className="fadeRightAll relative left-[-100px] opacity-0 flex items-center gap-4 mb-4 md:mb-6">
           <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
             04. Selected Works
@@ -423,13 +467,10 @@ const lens = document.querySelector(".mouse-lens");
         </div>
         
         <div className="relative fadeLeftAll  left-[100px] opacity-0">
-          {/* Title scales from 16vw on mobile down to 12vw on desktop */}
           <h1 style={{background:"linear-gradient(to right, rgb(50, 50, 255),rgb(200, 200, 255) )", backgroundClip:"text", color:"transparent"}} 
               className="product1Tx showcase-title text-[16vw] md:text-[12vw] italic font-black uppercase leading-[0.8] tracking-tighter">
             THE <br/> SHOWCASE
           </h1>
-          
-          {/* Reveal Mask Layer */}
           <div className="reveal-mask-container absolute inset-0 pointer-events-none" 
               style={{ maskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)', WebkitMaskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)' }}>
             <h1 className="product2Tx text-[16vw] md:text-[12vw] font-black uppercase leading-[0.8] tracking-tighter text-[var(--tx1-1)] italic">
@@ -441,17 +482,11 @@ const lens = document.querySelector(".mouse-lens");
       <div className="flex flex-col justify-center items-center h-[300vh]">
         {projectsData.map((project, index) => (
           <div key={index} className="snapper content-section w-full h-[100dvh] flex justify-center items-center px-4">
-            
-            {/* Project Card: Wider on mobile, fixed height */}
             <div className="fadeUpAll relative top-[100px] opacity-0 project-card group w-full md:w-[80vw] lg:w-[70vw] h-[70vh] md:h-[75vh] bg-transparent rounded-3xl border border-white/10 overflow-hidden text-[var(--tx1-1)]">
-              
-              {/* Background Image Link */}
               <a href={project.websiteLink} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-0 block cursor-pointer overflow-hidden">
                 <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 transition-colors duration-700" />
               </a>
-
-              {/* Info Overlay: Full width on mobile, half width on desktop */}
               <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 z-10 
                                backdrop-blur-md border-r border-white/10
                               pointer-events-none transition-transform duration-700 ease-expo 
@@ -468,7 +503,6 @@ const lens = document.querySelector(".mouse-lens");
                     <span className="text-[var(--tx4)] font-bold italic text-[10px] md:text-xs uppercase tracking-[0.4em] md:tracking-[0.5em]">
                       {project.num}
                     </span>
-                    {/* Title font scaling */}
                     <h4 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase italic leading-none">
                       {project.title.split(' ')[0]} <span className="stroke-text">{project.title.split(' ')[1] || ""}</span>
                     </h4>
@@ -478,8 +512,6 @@ const lens = document.querySelector(".mouse-lens");
                   </div>
                 </div>
               </div>
-
-              {/* GitHub Button: Smaller on mobile */}
               <div className="absolute right-4 bottom-4 md:right-10 md:bottom-10 z-30">
                 <a href={project.githubLink} target="_blank" className="group/btn relative flex items-center justify-center w-12 h-12 md:w-16 md:h-16 rounded-full bg-[var(--tx1-1)] text-black transition-all duration-500 hover:md:w-48 hover:bg-[var(--btn2)]">
                   <span className="z-10">
@@ -490,8 +522,6 @@ const lens = document.querySelector(".mouse-lens");
                   </span>
                 </a>
               </div>
-
-              {/* Progress Bar */}
               <div className="absolute bottom-0 left-0 h-[4px] w-0 bg-[var(--tx4)] transition-all duration-1000 group-hover:w-full z-40" />
             </div>
           </div>
