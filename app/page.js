@@ -18,7 +18,7 @@ const projectsData = [
     title: "Shoe Show",
     category: "E-Commerce / 3D Animation",
     description: "An immersive retail experience featuring interactive 3D shoe models and smooth GSAP transitions. Fully responsive across all devices.",
-    img: "images/Shoe-Show.png",
+    img: "images/Shoe-Show.webp",
     githubLink: "https://github.com/nourgamil/Shoe-Show",
     websiteLink: "https://nourgamil.github.io/Shoe-Show/"
   },
@@ -27,7 +27,7 @@ const projectsData = [
     title: "Globe Trotter",
     category: "Travel / Interaction",
     description: "A travel exploration platform featuring fluid transitions and interactive maps. Built with a fully responsive architecture.",
-    img: "images/Globe-Trotter.png",
+    img: "images/Globe-Trotter.webp",
     githubLink: "https://github.com/nourgamil/Globe-Trotter",
     websiteLink: "https://nourgamil.github.io/Globe-Trotter/"
   },
@@ -36,7 +36,7 @@ const projectsData = [
     title: "Cars Lambo",
     category: "Automotive / UI Design",
     description: "A high-end landing page for luxury vehicles with sleek animations and a custom vehicle showcase. Optimized for mobile responsiveness.",
-    img: "images/Cars-Lambo.png", 
+    img: "images/Cars-Lambo.webp", 
     githubLink: "https://github.com/nourgamil/Cars-Website",
     websiteLink: "https://nourgamil.github.io/Cars-Website/"
   },
@@ -45,7 +45,7 @@ const projectsData = [
   //   title: "Qr Cards",
   //   category: "Utility / Web App",
   //   description: "A functional QR code generator with a clean, modern interface for creating digital business cards. 100% responsive design.",
-  //   img: "images/Qr-Cards.png",
+  //   img: "images/Qr-Cards.webp",
   //   githubLink: "https://github.com/nourgamil/QR-code-Generator",
   //   websiteLink: "https://nourgamil.github.io/QR-code-Generator/"
   // }
@@ -362,98 +362,89 @@ const lens = document.querySelector(".mouse-lens");
     {/* About Section */}
     <section 
       id="about" 
-      className="snapper content-section
-      max-lg:pt-[100px]
-      max-sm:pt-[60px]
-      relative h-[100dvh]  w-full flex flex-col justify-center bg-black/50 text-[var(--tx1-1)] px-6 md:px-[10vw] z-10 overflow-hidden"
+      className="snapper content-section relative min-h-[100dvh] w-full flex flex-col justify-center bg-black/50 text-[var(--tx1-1)] px-6 md:px-[10vw] z-10 overflow-hidden py-20 lg:py-0"
     >
-      <div className="fadeRightAll relative left-[-100px] opacity-0 mb-6 md:mb-12">
-        <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
-          02. about
-        </h2>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
-        
-        <div className="lg:col-span-7 space-y-4 md:space-y-8">
-          <div>
-            <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)] dark:text-white">
-              Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
-            </h1>
-          </div>
-          <div className="fadeUpAll relative top-[100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10 p-5 md:p-8 rounded-3xl shadow-2xl ">
-            <p className="overflow-hidden text-sm md:text-lg text-[var(--tx1-1)] dark:text-gray-300 leading-relaxed line-clamp-4 md:line-clamp-none">
-              I bridge the gap between complex 3D mathematics and clean UI design. Every pixel is intentional, every motion is calculated. I specialize in crafting seamless, interactive experiences where art and technology converge.
-            </p>
-            <div className="grid grid-cols-2 gap-4 mt-4 md:mt-8 pt-4 md:pt-8 border-t border-white/10 ">
-              <div className="">
-                <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Experience</h4>
-                <p className="text-xs md:text-sm font-mono uppercase dark:text-white">3 Years</p>
-              </div>
-              <div className="">
-                <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Location</h4>
-                <p className="text-xs md:text-sm font-mono uppercase dark:text-white">Global / Remote</p>
+        <div className="fadeRightAll relative left-[-100px] opacity-0 mb-6 md:mb-12">
+          <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
+            02. about
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div className="lg:col-span-7 space-y-6 md:space-y-8 order-1 lg:order-1">
+            <div>
+              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)] dark:text-white">
+                Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
+              </h1>
+            </div>
+            <div className="fadeUpAll relative top-[100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl">
+              <p className="text-sm md:text-lg text-[var(--tx1-1)] dark:text-gray-300 leading-relaxed">
+                I bridge the gap between complex 3D mathematics and clean UI design. Every pixel is intentional, every motion is calculated. I specialize in crafting seamless, interactive experiences where art and technology converge.
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 mt-6 md:mt-8 pt-6 md:pt-8 border-t border-white/10">
+                <div>
+                  <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Experience</h4>
+                  <p className="text-xs md:text-sm font-mono uppercase dark:text-white">3 Years</p>
+                </div>
+                <div>
+                  <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Location</h4>
+                  <p className="text-xs md:text-sm font-mono uppercase dark:text-white">Global / Remote</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="lg:col-span-5 flex flex-col items-center justify-center gap-4 md:gap-8">
-          <div className="lg:col-span-5 flex flex-col items-center justify-center gap-8">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center order-2 lg:order-2">
             <div 
-              className="fadeLeftAll relative left-[100px] opacity-0 3d-wrapper w-full max-w-[320px] h-[400px] flex items-center justify-center cursor-pointer"
+              className="fadeLeftAll relative left-[100px] opacity-0 3d-wrapper w-full max-w-[280px] md:max-w-[320px] aspect-[4/5] max-sm:h-[200px] lg:h-[400px] flex items-center justify-center cursor-pointer"
               style={{ perspective: "1200px" }}
               onMouseMove={(e) => {
                 const { clientX, clientY, currentTarget } = e;
-                const { left, top, width, height } = currentTarget.getBoundingClientRect();
-                const x = (clientX - left) / width - 0.5;
-                const y = (clientY - top) / height - 0.5;
+                const rect = currentTarget.getBoundingClientRect();
+                const x = (clientX - rect.left) / rect.width - 0.5;
+                const y = (clientY - rect.top) / rect.height - 0.5;
                 
                 gsap.to(currentTarget.querySelector(".cv-card"), {
-                  rotateY: x * 40,
-                  rotateX: -y * 40,
-                  scale: 1.05,
-                  duration: 0.6,
+                  rotateY: x * 30,
+                  rotateX: -y * 30,
+                  scale: 1.02,
+                  duration: 0.5,
                   ease: "power2.out"
                 });
               }}
               onMouseLeave={(e) => {
                 gsap.to(e.currentTarget.querySelector(".cv-card"), { 
-                  rotateX: 0, 
-                  rotateY: 0, 
-                  scale: 1, 
-                  duration: 1.2, 
-                  ease: "elastic.out(1, 0.5)" 
+                  rotateX: 0, rotateY: 0, scale: 1, 
+                  duration: 1.2, ease: "elastic.out(1, 0.5)" 
                 });
               }}
             >
               <a 
                 href="/Nour Gamil CV.pdf" 
                 download 
-                className="cv-card group relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col items-center justify-between p-10 text-center overflow-hidden transition-colors hover:border-[var(--tx3)]/50"
+                className="cv-card group relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col items-center justify-between p-8 md:p-10 text-center overflow-hidden"
               >
-                <div className="absolute -inset-20 bg-[var(--tx3)] opacity-10 blur-[100px] group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute -inset-20 bg-[var(--tx3)] opacity-0 group-hover:opacity-20 blur-[80px] transition-opacity duration-700 pointer-events-none" />
 
-                <div className="z-10">
-                  <p className="text-[var(--tx2)] font-mono text-[10px] tracking-[0.4em] uppercase ">
-                    Personal Archive
-                  </p>
-                </div>
+                <p className="z-10 text-[var(--tx2)] font-mono text-[9px] md:text-[10px] tracking-[0.4em] uppercase opacity-70">
+                  Personal Archive
+                </p>
 
-                <div className="relative z-10 w-24 h-24 flex items-center justify-center">
-                  <div className="absolute inset-0 border-4 border-dashed border-[var(--tx3)] rounded-full animate-[spin_15s_linear_infinite]" />
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--tx1-1)] group-hover:translate-y-2 transition-transform duration-500">
+                <div className="relative z-10 w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
+                  <div className="absolute inset-0 border-2 md:border-4 border-dashed border-[var(--tx3)] rounded-full animate-[spin_10s_linear_infinite] opacity-30" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white group-hover:translate-y-2 transition-transform duration-500">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
                   </svg>
                 </div>
 
                 <div className="z-10 w-full">
-                  <h3 className="text-xl font-black text-[var(--btn2)] uppercase tracking-tighter mb-2">Download CV</h3>
-                  <div className="h-[2px] w-0 bg-[var(--btn2)] mx-auto group-hover:w-full transition-all duration-500 shadow-[0_0_10px_var(--tx3)]" />
+                  <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tighter mb-2">Download CV</h3>
+                  <div className="h-[2px] w-0 bg-[var(--tx3)] mx-auto group-hover:w-full transition-all duration-500" />
                 </div>
               </a>
             </div>
           </div>
+
         </div>
-      </div>
     </section>
     {/* Skills Section */}
     <Skills />

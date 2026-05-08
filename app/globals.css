@@ -43,7 +43,6 @@ html, body {
 .snapper{
   height: 100vh;
 }
-/* This ensures the 3D canvas is always a layer behind the text */
 .canvas-container {
   position: fixed;
   top: 0;
@@ -51,10 +50,9 @@ html, body {
   width: 100vw;
   height: 100vh;
   z-index: -1; 
-  pointer-events: none; /* Allows mouse to still interact with text/buttons */
+  pointer-events: none; 
 }
 
-/* Allow the horizontal wrapper to be the only exception */
 .projects-wrapper {
   overflow: visible; 
 }
@@ -64,11 +62,9 @@ html, body {
 } 
 .project-card h4, 
 .project-card p {
-  /* This creates a subtle dark 'glow' behind text for maximum legibility */
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 .stroke-text {
-  /* Outlined text is the hardest to see; let's give it a solid backing */
   paint-order: stroke fill;
   text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
 } 
@@ -77,15 +73,11 @@ nav a {
   text-shadow: 0 0 0px transparent;
   transition: text-shadow 0.5s ease;
 }
-
-/* Custom 3D Glow for the active Link */
 .nav-link-active {
   color: #fdc700 !important;
   text-shadow: 0 0 15px rgba(253, 199, 0, 0.6);
   transition: all 0.5s ease;
 }
-   
-/* Make the navbar itself feel more 'Physical' */
 nav {
   box-shadow: 
     0 10px 30px -10px rgba(0, 0, 0, 0.5),
@@ -93,12 +85,10 @@ nav {
 }
 
 .reveal-mask-container {
-  /* This prevents the yellow text from being visible outside the lens radius */
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
 }
 
-/* Ensure the text doesn't wrap differently between layers */
 .showcase-title, .reveal-mask-container h1 {
   white-space: nowrap;
   pointer-events: none;
@@ -108,4 +98,16 @@ nav {
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
+}
+
+cv-card {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 1024px) {
+  .cv-card {
+    shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
 }

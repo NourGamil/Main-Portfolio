@@ -149,7 +149,7 @@ export default function Navbar() {
                 ease: "power4.inOut",
               });
             }}
-        className="fixed bottom-8 right-8 z-50 p-4 rounded-full 
+        className="fixed bottom-4 right-4 z-50 p-4 rounded-full 
                   border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl transition-all duration-300
                   group flex items-center justify-center cursor-pointer"
         aria-label="Scroll to top"
