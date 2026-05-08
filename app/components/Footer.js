@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <section 
       id="contact" 
-      className="snapper content-section relative w-full h-[100dvh] mt-[-1px] max-sm:pt-[50px] md:pt-[22vh] lg:pt-[30vh] bg-black/90 backdrop-blur-sm flex flex-col justify-between pt-24 pb-10 px-6 md:px-24 overflow-hidden text-[var(--tx1-1)]"
+      className="snapper content-section relative w-full h-[100dvh] mt-[-1px] pt-[22vh] lg:pt-[30vh] bg-black/90 backdrop-blur-sm flex flex-col justify-between pt-24 pb-10 px-6 md:px-24 overflow-hidden text-[var(--tx1-1)]"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none" />
       

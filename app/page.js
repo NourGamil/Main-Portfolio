@@ -233,14 +233,13 @@ magneticWrappers.forEach((wrapper) => {
 
 /*------------------------------------ about Section------------------------------- */
 gsap.to(".thought-card", {
-  y: -20, // Move up and down
+  y: -20, 
   duration: 2,
   repeat: -1,
   yoyo: true,
   ease: "sine.inOut"
 });
 
-// Subtle rotating glow inside
 gsap.to(".thought-glow", {
   opacity: 0.4,
   scale: 1.5,
