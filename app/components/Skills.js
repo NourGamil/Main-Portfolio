@@ -107,7 +107,7 @@ useEffect(() => {
 
     <div className="flex flex-col gap-4 md:gap-10">
       
-      <div className="fadeDownAll relative top-[-100px] opacity-0  p-4 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
+      <div className="fadeLeftAll relative left-[100px] opacity-0  p-4 md:p-8 rounded-2xl md:rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
         <h3 className="text-sm md:text-2xl font-black uppercase mb-3 md:mb-8 text-[var(--tx1-1)]">Back-End</h3>
         
         {/* 2 SKILLS PER LINE ON MOBILE: grid-cols-2 */}

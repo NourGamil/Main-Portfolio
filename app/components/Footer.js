@@ -47,12 +47,12 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-10">
 
           <div className="space-y-4 md:space-y-6">
-            <div className="fadeDownAll relative top-[-100px] opacity-0">
+            <div className="fadeLeftAll relative left-[100px] opacity-0">
               <h4 className="text-[#fdc700] font-bold text-[9px] md:text-[10px] uppercase tracking-[0.4em] mb-2">Direct</h4>
               <p className="font-mono text-[10px] md:text-sm break-all">nouragmil135@gmail.com</p>
               <p className="font-mono text-[10px] md:text-sm mt-1">+20 01221646925</p>
             </div>
-            <div className="fadeDownAll relative top-[-100px] opacity-0">
+            <div className="fadeLeftAll relative left-[100px] opacity-0">
               <h4 className="text-[#fdc700] font-bold text-[9px] md:text-[10px] uppercase tracking-[0.4em] mb-2">Location</h4>
               <p className="font-mono text-[10px] md:text-sm">Cairo, Egypt (GMT+3)</p>
             </div>

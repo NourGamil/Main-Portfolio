@@ -129,6 +129,7 @@ let homeTl = gsap.timeline();
           const fadeLefts = section.querySelectorAll(".fadeLeftAll");
           const fadeUps = section.querySelectorAll(".fadeUpAll");
           const fadeDowns = section.querySelectorAll(".fadeDownAll");
+          const fadeScales = section.querySelectorAll(".fadeScaleAll");
 
           ScrollTrigger.create({
             trigger: section,
@@ -138,15 +139,16 @@ let homeTl = gsap.timeline();
                 .to(fadeRights, { opacity: 1, x: 100, stagger: 0.1, duration: 1 })
                 .to(fadeLefts, { opacity: 1, x: -100,stagger: 0.1, duration: 1 }, "-=1")
                 .to(fadeUps, { opacity: 1, y: -100,stagger: 0.1, duration: 1 }, "-=1")
-                .to(fadeDowns, { opacity: 1, y: 100,stagger: 0.1, duration: 1 }, "-=1");
+                .to(fadeDowns, { opacity: 1, y: 100,stagger: 0.1, duration: 1 }, "-=1")
+                .to(fadeScales, { opacity: 1, scale:1,stagger: 0.1, duration: 1 }, "-=1");
             },
             onLeaveBack: () => {
               gsap.timeline()
                 .to(fadeRights, { opacity: 0, x: -100, stagger: 0.1, duration: 1 })
                 .to(fadeLefts, { opacity: 0, x: 100,stagger: 0.1, duration: 1 }, "-=1")
                 .to(fadeUps, { opacity: 0, y: 100,stagger: 0.1, duration: 1 }, "-=1")
-                .to(fadeDowns, { opacity: 0, y: -100,stagger: 0.1, duration: 1 }, "-=1");
-
+                .to(fadeDowns, { opacity: 0, y: -100,stagger: 0.1, duration: 1 }, "-=1")
+                .to(fadeScales, { opacity: 0, scale:0,stagger: 0.1, duration: 1 }, "-=1");
             }
           });
 
@@ -158,14 +160,16 @@ let homeTl = gsap.timeline();
                 .to(fadeRights, { opacity: 0, x: -100,duration: 1 })
                 .to(fadeLefts, { opacity: 0, x: 100,duration: 1 }, "-=1")
                 .to(fadeUps, { opacity: 0, y: 100,duration: 1 }, "-=1")
-                .to(fadeDowns, { opacity: 0, y: -100,duration: 1 }, "-=1");
+                .to(fadeDowns, { opacity: 0, y: -100,duration: 1 }, "-=1")
+                .to(fadeScales, { opacity: 0, scale:0,stagger: 0.1, duration: 1 }, "-=1");
             },
             onLeaveBack: () => {
               gsap.timeline()
                 .to(fadeRights, { opacity: 1, x: 100,duration: 1 })
                 .to(fadeLefts, { opacity: 1, x: -100,duration: 1 }, "-=1")
                 .to(fadeUps, { opacity: 1, y: -100,duration: 1 }, "-=1")
-                .to(fadeDowns, { opacity: 1, y: 100,duration: 1 }, "-=1");
+                .to(fadeDowns, { opacity: 1, y: 100,duration: 1 }, "-=1")
+                .to(fadeScales, { opacity: 1, scale:1,stagger: 0.1, duration: 1 }, "-=1");
             }
           });
         });
@@ -362,21 +366,21 @@ const lens = document.querySelector(".mouse-lens");
     {/* About Section */}
     <section 
       id="about" 
-      className="snapper content-section relative min-h-[100dvh] w-full flex flex-col justify-center bg-black/50 text-[var(--tx1-1)] px-6 md:px-[10vw] z-10 overflow-hidden py-20 lg:py-0"
+      className="snapper content-section relative min-h-[100dvh] w-full flex flex-col justify-center bg-black/50 text-[var(--tx1-1)] px-6 md:px-[10vw] z-10 overflow-hidden lg:py-0 pt-[70px]"
     >
-        <div className="fadeRightAll relative left-[-100px] opacity-0 mb-6 md:mb-12">
+        <div className="fadeRightAll relative left-[-100px] opacity-0 mb-3 md:mb-12">
           <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
             02. about
           </h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-sm:gap-3 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6 md:space-y-8 order-1 lg:order-1">
             <div>
               <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)] dark:text-white">
                 Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
               </h1>
             </div>
-            <div className="fadeUpAll relative top-[100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl">
+            <div className="fadeRightAll relative left-[-100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10  p-3 md:p-8 rounded-3xl shadow-2xl">
               <p className="text-sm md:text-lg text-[var(--tx1-1)] dark:text-gray-300 leading-relaxed">
                 I bridge the gap between complex 3D mathematics and clean UI design. Every pixel is intentional, every motion is calculated. I specialize in crafting seamless, interactive experiences where art and technology converge.
               </p>
@@ -395,7 +399,7 @@ const lens = document.querySelector(".mouse-lens");
           </div>
           <div className="lg:col-span-5 flex flex-col items-center justify-center order-2 lg:order-2">
             <div 
-              className="fadeLeftAll relative left-[100px] opacity-0 3d-wrapper w-full max-w-[280px] md:max-w-[320px] aspect-[4/5] max-sm:h-[200px] lg:h-[400px] flex items-center justify-center cursor-pointer"
+              className="fadeLeftAll relative left-[100px] opacity-0 3d-wrapper w-full max-w-[280px] md:max-w-[320px] aspect-[4/5] max-sm:h-[180px] lg:h-[400px] flex items-center justify-center cursor-pointer"
               style={{ perspective: "1200px" }}
               onMouseMove={(e) => {
                 const { clientX, clientY, currentTarget } = e;
@@ -419,26 +423,26 @@ const lens = document.querySelector(".mouse-lens");
               }}
             >
               <a 
-                href="/Nour Gamil CV.pdf" 
+                href="Nour Gamil CV.pdf" 
                 download 
-                className="cv-card group relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col items-center justify-between p-8 md:p-10 text-center overflow-hidden"
+                className="cv-card group relative w-full h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl border border-white/20 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col items-center justify-between max-sm:p-4 p-8 md:p-10 text-center overflow-hidden"
               >
                 <div className="absolute -inset-20 bg-[var(--tx3)] opacity-0 group-hover:opacity-20 blur-[80px] transition-opacity duration-700 pointer-events-none" />
 
-                <p className="z-10 text-[var(--tx2)] font-mono text-[9px] md:text-[10px] tracking-[0.4em] uppercase opacity-70">
+                <p className="z-10 text-[var(--tx2)] font-mono text-[9px] md:text-[10px] tracking-[0.4em] uppercase ">
                   Personal Archive
                 </p>
 
                 <div className="relative z-10 w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
-                  <div className="absolute inset-0 border-2 md:border-4 border-dashed border-[var(--tx3)] rounded-full animate-[spin_10s_linear_infinite] opacity-30" />
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-white group-hover:translate-y-2 transition-transform duration-500">
+                  <div className="absolute inset-0 border-3 md:border-3 border-dashed border-[var(--tx1-1)] rounded-full animate-[spin_10s_linear_infinite] " />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--tx1-1)]  transition-transform duration-500">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
                   </svg>
                 </div>
 
                 <div className="z-10 w-full">
-                  <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tighter mb-2">Download CV</h3>
-                  <div className="h-[2px] w-0 bg-[var(--tx3)] mx-auto group-hover:w-full transition-all duration-500" />
+                  <h3 className="text-lg md:text-xl font-black text-[var(--btn2)] uppercase tracking-tighter mb-2">Download CV</h3>
+                  <div className="h-[2px] w-0 bg-[var(--btn2)] mx-auto group-hover:w-full transition-all duration-500" />
                 </div>
               </a>
             </div>
@@ -460,12 +464,12 @@ const lens = document.querySelector(".mouse-lens");
         <div className="relative fadeLeftAll  left-[100px] opacity-0">
           <h1 style={{background:"linear-gradient(to right, rgb(50, 50, 255),rgb(200, 200, 255) )", backgroundClip:"text", color:"transparent"}} 
               className="product1Tx showcase-title text-[16vw] md:text-[12vw] italic font-black uppercase leading-[0.8] tracking-tighter">
-            THE <br/> SHOWCASE
+            THE <br/> SHOW <br className="sm:hidden"/> CASE
           </h1>
           <div className="reveal-mask-container absolute inset-0 pointer-events-none" 
               style={{ maskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)', WebkitMaskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)' }}>
             <h1 className="product2Tx text-[16vw] md:text-[12vw] font-black uppercase leading-[0.8] tracking-tighter text-[var(--tx1-1)] italic">
-              THE <br/> SHOWCASE
+              THE <br/> SHOW <br className="sm:hidden"/> CASE
             </h1>
           </div>
         </div>
@@ -473,7 +477,7 @@ const lens = document.querySelector(".mouse-lens");
       <div className="flex flex-col justify-center items-center h-[300vh]">
         {projectsData.map((project, index) => (
           <div key={index} className="snapper content-section w-full h-[100dvh] flex justify-center items-center px-4">
-            <div className="fadeUpAll relative top-[100px] opacity-0 project-card group w-full md:w-[80vw] lg:w-[70vw] h-[70vh] md:h-[75vh] bg-transparent rounded-3xl border border-white/10 overflow-hidden text-[var(--tx1-1)]">
+            <div className="fadeScaleAll scale-0 opacity-0 project-card group w-full md:w-[80vw] lg:w-[70vw] h-[70vh] md:h-[75vh] bg-transparent rounded-3xl border border-white/10 overflow-hidden text-[var(--tx1-1)]">
               <a href={project.websiteLink} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-0 block cursor-pointer overflow-hidden">
                 <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 transition-colors duration-700" />
@@ -481,7 +485,7 @@ const lens = document.querySelector(".mouse-lens");
               <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 z-10 
                                backdrop-blur-md border-r border-white/10
                               pointer-events-none transition-transform duration-700 ease-expo 
-                              lg:group-hover:-translate-x-full">
+                              ">
                 
                 <div className="h-full w-full p-6 md:p-12 flex flex-col justify-center">
                   <div className="mb-4 md:mb-8">
@@ -497,7 +501,7 @@ const lens = document.querySelector(".mouse-lens");
                     <h4 className="text-4xl md:text-5xl lg:text-7xl font-black uppercase italic leading-none">
                       {project.title.split(' ')[0]} <span className="stroke-text">{project.title.split(' ')[1] || ""}</span>
                     </h4>
-                    <p className="max-w-md text-sm md:text-lg leading-relaxed text-gray-300 line-clamp-3 md:line-clamp-none">
+                    <p className="max-w-md text-sm md:text-lg leading-relaxed text-gray-300 md:line-clamp-none">
                       {project.description}
                     </p>
                   </div>
@@ -513,7 +517,7 @@ const lens = document.querySelector(".mouse-lens");
                   </span>
                 </a>
               </div>
-              <div className="absolute bottom-0 left-0 h-[4px] w-0 bg-[var(--tx4)] transition-all duration-1000 group-hover:w-full z-40" />
+              <div className="absolute bottom-0 left-0 h-[4px] w-0 bg-[var(--btn2)] transition-all duration-1000 group-hover:w-full z-40" />
             </div>
           </div>
         ))}
