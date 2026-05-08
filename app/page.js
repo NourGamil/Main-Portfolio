@@ -479,7 +479,7 @@ const lens = document.querySelector(".mouse-lens");
           <div key={index} className="snapper content-section w-full h-[100dvh] flex justify-center items-center px-4">
             <div className="fadeScaleAll scale-0 opacity-0 project-card group w-full md:w-[80vw] lg:w-[70vw] h-[70vh] md:h-[75vh] bg-transparent rounded-3xl border border-white/10 overflow-hidden text-[var(--tx1-1)]">
               <a href={project.websiteLink} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-0 block cursor-pointer overflow-hidden">
-                <img src={project.img} alt={project.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img src={project.img} alt={project.title} className="w-full h-full object-cover xl:transition-transform xl:duration-1000 xl:group-hover:scale-110" />
                 <div className="absolute inset-0 transition-colors duration-700" />
               </a>
               <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 z-10 
