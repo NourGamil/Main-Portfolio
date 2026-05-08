@@ -366,33 +366,33 @@ const lens = document.querySelector(".mouse-lens");
     {/* About Section */}
     <section 
       id="about" 
-      className="snapper content-section relative min-h-[100dvh] w-full flex flex-col justify-center bg-black/50 text-[var(--tx1-1)] px-6 md:px-[10vw] z-10 overflow-hidden lg:py-0 pt-[70px]"
+      className="snapper content-section relative min-h-[100dvh] w-full flex flex-col justify-center bg-black/50 text-[var(--tx1-1)] px-6 md:px-[10vw] z-10 overflow-hidden lg:py-0 pt-[70px] max-sm:pt-[50px]"
     >
         <div className="fadeRightAll relative left-[-100px] opacity-0 mb-3 md:mb-12">
           <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
             02. about
           </h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-sm:gap-3 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-sm:gap-6 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6 md:space-y-8 order-1 lg:order-1">
             <div>
-              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)] dark:text-white">
+              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)]">
                 Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
               </h1>
             </div>
             <div className="fadeRightAll relative left-[-100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10  p-3 md:p-8 rounded-3xl shadow-2xl">
-              <p className="text-sm md:text-lg text-[var(--tx1-1)] dark:text-gray-300 leading-relaxed">
+              <p className="text-sm md:text-lg text-[var(--tx1-1)]  leading-relaxed">
                 I bridge the gap between complex 3D mathematics and clean UI design. Every pixel is intentional, every motion is calculated. I specialize in crafting seamless, interactive experiences where art and technology converge.
               </p>
               
               <div className="grid grid-cols-2 gap-4 mt-6 md:mt-8 pt-6 md:pt-8 border-t border-white/10">
                 <div>
                   <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Experience</h4>
-                  <p className="text-xs md:text-sm font-mono uppercase dark:text-white">3 Years</p>
+                  <p className="text-xs md:text-sm font-mono uppercase ">3 Years</p>
                 </div>
                 <div>
                   <h4 className="text-[var(--tx5)] font-bold uppercase text-[10px] md:text-xs tracking-widest mb-1">Location</h4>
-                  <p className="text-xs md:text-sm font-mono uppercase dark:text-white">Global / Remote</p>
+                  <p className="text-xs md:text-sm font-mono uppercase ">Global / Remote</p>
                 </div>
               </div>
             </div>
@@ -483,7 +483,7 @@ const lens = document.querySelector(".mouse-lens");
                 <div className="absolute inset-0 transition-colors duration-700" />
               </a>
               <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 z-10 
-                               backdrop-blur-md border-r border-white/10
+                               border-r border-white/10
                               pointer-events-none transition-transform duration-700 ease-expo 
                               ">
                 
