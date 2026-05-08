@@ -483,8 +483,8 @@ const lens = document.querySelector(".mouse-lens");
                 <div className="absolute inset-0 transition-colors duration-700" />
               </a>
               <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 z-10 
-                               border-r border-white/10
-                              pointer-events-none transition-transform duration-700 ease-expo 
+                              backdrop-blur-md border-r border-white/10
+                              pointer-events-none xl:transition-transform xl:duration-700 xl:ease-expo 
                               ">
                 
                 <div className="h-full w-full p-6 md:p-12 flex flex-col justify-center">
