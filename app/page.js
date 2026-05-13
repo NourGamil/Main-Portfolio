@@ -462,12 +462,12 @@ const lens = document.querySelector(".mouse-lens");
         
         <div className="relative fadeLeftAll  left-[100px] opacity-0">
           <h1 style={{background:"linear-gradient(to right, rgb(50, 50, 255),rgb(200, 200, 255) )", backgroundClip:"text", color:"transparent"}} 
-              className="product1Tx showcase-title text-[16vw] md:text-[12vw] italic font-black uppercase leading-[0.8] tracking-tighter">
+              className="product1Tx showcase-title text-[6rem] md:text-[12rem] italic font-black uppercase leading-[0.8] tracking-tighter">
             THE <br/> SHOW <br className="sm:hidden"/> CASE
           </h1>
           <div className="reveal-mask-container absolute inset-0 pointer-events-none" 
               style={{ maskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)', WebkitMaskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)' }}>
-            <h1 className="product2Tx text-[16vw] md:text-[12vw] font-black uppercase leading-[0.8] tracking-tighter text-[var(--tx1-1)] italic">
+            <h1 className="product2Tx text-[6rem] md:text-[12rem] font-black uppercase leading-[0.8] tracking-tighter text-[var(--tx1-1)] italic">
               THE <br/> SHOW <br className="sm:hidden"/> CASE
             </h1>
           </div>
