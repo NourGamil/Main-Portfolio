@@ -15,12 +15,12 @@ export default function Home() {
 const projectsData = [
   {
     num: "01",
-    title: "Shoe Show",
+    title: "Sonic Sneaks",
     category: "E-Commerce / 3D Animation",
     description: "An immersive retail experience featuring interactive 3D shoe models and smooth GSAP transitions. Fully responsive across all devices.",
     img: "images/Shoe-Show.webp",
-    githubLink: "https://github.com/nourgamil/Shoe-Show",
-    websiteLink: "https://nourgamil.github.io/Shoe-Show/"
+    githubLink: "https://github.com/nourgamil/Sonic-Sneaks",
+    websiteLink: "https://nourgamil.github.io/Sonic-Sneaks/"
   },
     {
     num: "02",
