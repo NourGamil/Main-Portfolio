@@ -33,12 +33,12 @@ const projectsData = [
   },
   {
     num: "03",
-    title: "Cars Lambo",
+    title: "Velocity",
     category: "Automotive / UI Design",
     description: "A high-end landing page for luxury vehicles with sleek animations and a custom vehicle showcase. Optimized for mobile responsiveness.",
     img: "images/Cars-Lambo.webp", 
-    githubLink: "https://github.com/nourgamil/Cars-Website",
-    websiteLink: "https://nourgamil.github.io/Cars-Website/"
+    githubLink: "https://github.com/nourgamil/Velocity/",
+    websiteLink: "https://nourgamil.github.io/Velocity/"
   },
   // {
   //   num: "04",
