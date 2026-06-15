@@ -23,8 +23,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const indicator = indicatorRef.current;
+    const navTriggers = [];
 
-    gsap.from(navRef.current, {
+    const navAnimation = gsap.from(navRef.current, {
       y: -50,
       opacity: 0,
       duration: 1,
@@ -45,37 +46,45 @@ export default function Navbar() {
     };
 
     navLinks.forEach((link, i) => {
-        let startTrigger = "top center";
-        let endTrigger = "bottom center";
-        if (link.href === "#projects") {
-          startTrigger = "top center";
-          endTrigger = "bottom top"; 
-        }
+      let startTrigger = "top center";
+      let endTrigger = "bottom center";
 
-        if (link.href === "#contact") {
-          const projectsSection = document.querySelector("#projects");
-          
+      if (link.href === "#projects") {
+        startTrigger = "top center";
+        endTrigger = "bottom top";
+      }
+
+      if (link.href === "#contact") {
+        const projectsSection = document.querySelector("#projects");
+        if (!projectsSection) return;
+
+        navTriggers.push(
           ScrollTrigger.create({
-            trigger: projectsSection, 
-            start: "bottom center", 
+            trigger: projectsSection,
+            start: "bottom center",
             onEnter: () => moveIndicator(i),
-            onLeaveBack: () => moveIndicator(i - 1), 
-          });
-          
-          return; 
-        }
+            onLeaveBack: () => moveIndicator(i - 1),
+          })
+        );
 
+        return;
+      }
+
+      navTriggers.push(
         ScrollTrigger.create({
           trigger: link.href,
           start: startTrigger,
           end: endTrigger,
           onEnter: () => moveIndicator(i),
           onEnterBack: () => moveIndicator(i),
-        });
-      });
+        })
+      );
+    });
 
-
-    return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    return () => {
+      navAnimation.kill();
+      navTriggers.forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   const scrollToSection = (e, href, index) => {

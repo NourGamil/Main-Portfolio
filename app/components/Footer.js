@@ -1,9 +1,6 @@
 "use client";
-import { useState } from "react";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-
   return (
     <section 
       id="contact" 
@@ -80,6 +77,7 @@ function SocialLink({ href, label }) {
     <a 
       href={href} 
       target="_blank" 
+      rel="noopener noreferrer"
       className="fadeLeftAll relative left-[100px] opacity-0 group flex items-center justify-between border-b border-white/5 py-1 md:py-2 hover:border-[#fdc700] transition-colors"
     >
       <span className="text-gray-400 group-hover:text-[var(--tx1-1)] transition-colors uppercase text-[10px] md:text-xs tracking-widest">{label}</span>

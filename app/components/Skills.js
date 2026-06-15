@@ -1,11 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const skillsData = {
   frontend: [
@@ -24,49 +17,11 @@ const skillsData = {
 };
 
 export default function Skills() {
-  const sectionRef = useRef(null);
-
-useEffect(() => {
-    const ctx = gsap.context(() => {
-      const skillGroups = gsap.utils.toArray(".skill-item");
-
-      skillGroups.forEach((group) => {
-        const bar = group.querySelector(".skill-bar-fill");
-        const numberSpan = group.querySelector(".skill-number");
-        const targetLevel = parseInt(bar.getAttribute("data-level"));
-
-        gsap.fromTo(bar, 
-          { width: "0%" }, 
-          {
-            width: `${targetLevel}%`,
-            duration: 2.5,  
-            delay: 0.4,      
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: group,
-              start: "top 85%", 
-              end: "bottom 15%",
-              toggleActions: "play reverse play reverse", 
-            },
-            onUpdate: function() {
-              const progress = parseFloat(bar.style.width);
-              if (numberSpan) {
-                numberSpan.innerText = Math.floor(progress) + "%";
-              }
-            }
-          }
-        );
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   const renderSkillItem = (skill) => (
     <div key={skill.name} className="skill-item relative">
       <div className="flex justify-between mb-2 font-mono text-xs uppercase tracking-widest">
         <span>{skill.name}</span>
-        <span className="skill-number">0%</span>
+        <span className="skill-number">{skill.level}%</span>
       </div>
       <div className="h-[8px] w-full bg-white/10 rounded-full overflow-hidden">
         <div 
@@ -75,7 +30,7 @@ useEffect(() => {
           style={{ 
             backgroundColor: skill.color,
             boxShadow: `0 0 15px ${skill.color}`,
-            width: "0%"
+            width: `${skill.level}%`
           }}
         />
       </div>
@@ -84,7 +39,6 @@ useEffect(() => {
 
   return (
     <section 
-  ref={sectionRef} 
   id="skills" 
   className="snapper content-section relative h-[100dvh] w-full flex flex-col justify-center px-4 md:px-[10vw] bg-black/65 text-[var(--tx1-1)] overflow-hidden"
 >

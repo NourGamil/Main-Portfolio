@@ -1,23 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 import Scene from "./components/Scene";
 import Navbar from "./components/Navbar";
 
-import { Inter, Montserrat } from 'next/font/google';
-
-const mainFont = Inter({ subsets: ['latin'], weight: ['400', '700', '900'] });
-const displayFont = Montserrat({ subsets: ['latin'], weight: ['900'] });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const mainFont = Inter({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
 export const metadata = {
   title: "Nour Gamil Portfolio",
@@ -29,9 +16,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${mainFont.className} bg-black text-white`}>
         <SmoothScroll>
-          <Navbar /> 
+          <Navbar />
           <div className="fixed inset-0 -z-10">
-            <Scene/>
+            <Scene />
           </div>
           <main className="relative z-10">{children}</main>
         </SmoothScroll>
