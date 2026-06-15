@@ -67,17 +67,6 @@ nav {
     inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
-.reveal-mask-container {
-  mask-repeat: no-repeat;
-  -webkit-mask-repeat: no-repeat;
-}
-
-.showcase-title, .reveal-mask-container h1 {
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-}
-
 .cv-card {
   will-change: transform;
   transform-style: preserve-3d;

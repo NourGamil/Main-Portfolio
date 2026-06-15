@@ -345,41 +345,6 @@ export default function Home() {
         });
       });
 
-      gsap.timeline({ repeat: -1 })
-        .to(".product1Tx", {
-          backgroundClip: "text",
-          color: "transparent",
-          background: "linear-gradient(to right,rgb(200, 200, 255) , rgb(50,50,255))",
-          duration: 2,
-        })
-        .to(".product1Tx", {
-          backgroundClip: "text",
-          color: "transparent",
-          background: "linear-gradient(to right, rgb(50,50,255),rgb(200, 200, 255) )",
-          duration: 2,
-        });
-
-      const maskContainer = document.querySelector(".reveal-mask-container");
-
-      if (maskContainer) {
-        const handleRevealMaskMove = (event) => {
-          const { clientX, clientY } = event;
-          const rect = maskContainer.getBoundingClientRect();
-          const localX = clientX - rect.left;
-          const localY = clientY - rect.top;
-
-          gsap.to(maskContainer, {
-            attr: {
-              style: `mask-image: radial-gradient(circle 128px at ${localX}px ${localY}px, black 100%, transparent 100%); -webkit-mask-image: radial-gradient(circle 128px at ${localX}px ${localY}px, black 100%, transparent 100%);`,
-            },
-            duration: 0.5,
-            ease: "power2.out",
-          });
-        };
-
-        window.addEventListener("mousemove", handleRevealMaskMove);
-        cleanupFns.push(() => window.removeEventListener("mousemove", handleRevealMaskMove));
-      }
 
       const refreshFrame = requestAnimationFrame(() => ScrollTrigger.refresh());
       cleanupFns.push(() => cancelAnimationFrame(refreshFrame));
@@ -423,9 +388,9 @@ export default function Home() {
         
         <div>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-[var(--tx0)] flex flex-col">
-            <span className="fadeRight relative left-[-100px] opacity-0 inline-block">Welcome To</span>
+            <span className="fadeRight relative left-[-100px] opacity-0 inline-block">Nour Gamil</span>
             <span className="fadeRight relative left-[-100px] opacity-0 masterpiece-accent inline-block text-[var(--tx3)] drop-shadow-md">
-              My Portfolio
+              Portfolio
             </span>
           </h1>
         </div> 
@@ -477,8 +442,8 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-sm:gap-6 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6 md:space-y-8 order-1 lg:order-1">
             <div>
-              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx1-1)]">
-                Creating digital <span className="text-[var(--tx2)]">poetry</span> through code.
+              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)]">
+                Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
               </h1>
             </div>
             <div className="fadeRightAll relative left-[-100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10  p-3 md:p-8 rounded-3xl shadow-2xl">
@@ -555,31 +520,19 @@ export default function Home() {
     <Skills />
     {/* Projects Section */}
     <section id="projects" className="relative bg-black/80">
-      <div className="snapper content-section project-card w-full h-[100dvh] flex flex-col justify-center px-6 md:pl-[10vw] relative ">
-        <div className="fadeRightAll relative left-[-100px] opacity-0 flex items-center gap-4 mb-4 md:mb-6">
-          <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
-            04. Selected Works
-          </h2>
-        </div>
-        
-        <div className="relative fadeLeftAll  left-[100px] opacity-0">
-          <h1 style={{background:"linear-gradient(to right, rgb(50, 50, 255),rgb(200, 200, 255) )", backgroundClip:"text", color:"transparent"}} 
-              className="product1Tx showcase-title text-[6rem] md:text-[12rem] italic font-black uppercase leading-[0.8] tracking-tighter">
-            THE <br/> SHOW <br className="sm:hidden"/> CASE
-          </h1>
-          <div className="reveal-mask-container absolute inset-0 pointer-events-none" 
-              style={{ maskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)', WebkitMaskImage: 'radial-gradient(circle 128px at 0px 0px, black 100%, transparent 100%)' }}>
-            <h1 className="product2Tx text-[6rem] md:text-[12rem] font-black uppercase leading-[0.8] tracking-tighter text-[var(--tx1-1)] italic">
-              THE <br/> SHOW <br className="sm:hidden"/> CASE
-            </h1>
-          </div>
-        </div>
-      </div>
-
       <div className="projects-wrapper">
         {projectSections.map((row, rowIndex) => (
-          <div key={rowIndex} className="snapper content-section project-section w-full h-[100dvh] flex justify-center items-center px-4 sm:px-6 lg:px-[7vw] py-6 sm:py-8 md:py-10 lg:py-12 overflow-hidden">
-            <div className="project-grid grid w-full max-w-[1600px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
+          <div key={rowIndex} className="snapper content-section project-section w-full h-[100dvh] flex justify-center items-start px-4 sm:px-6 lg:px-[7vw] pt-24 sm:pt-24 md:pt-24 lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12 overflow-hidden">
+            <div className="project-section-inner w-full max-w-[1600px] flex flex-col">
+              {rowIndex === 0 && (
+                <div className="project-heading fadeRightAll relative left-[-100px] opacity-0 mb-5 sm:mb-6 md:mb-8">
+                  <h2 className="text-[var(--tx2)] italic uppercase tracking-[0.3em] md:tracking-[0.4em] font-bold text-xs md:text-sm">
+                    04. Works
+                  </h2>
+                </div>
+              )}
+
+              <div className="project-grid grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 xl:gap-8">
               {row.map((project) => {
                 const openLink = project.websiteLink || project.githubLink;
 
@@ -652,6 +605,7 @@ export default function Home() {
                 );
               })}
             </div>
+          </div>
           </div>
         ))}
       </div>
