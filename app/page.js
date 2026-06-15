@@ -388,9 +388,9 @@ export default function Home() {
         
         <div>
           <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-[var(--tx0)] flex flex-col">
-            <span className="fadeRight relative left-[-100px] opacity-0 inline-block">Nour Gamil</span>
+            <span className="fadeRight relative left-[-100px] opacity-0 inline-block">Welcome to</span>
             <span className="fadeRight relative left-[-100px] opacity-0 masterpiece-accent inline-block text-[var(--tx3)] drop-shadow-md">
-              Portfolio
+            My Portfolio
             </span>
           </h1>
         </div> 
@@ -442,8 +442,8 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 max-sm:gap-6 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6 md:space-y-8 order-1 lg:order-1">
             <div>
-              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx0)]">
-                Creating digital <span className="text-[var(--tx3)]">poetry</span> through code.
+              <h1 className="fadeRightAll relative left-[-100px] opacity-0 text-3xl sm:text-5xl md:text-6xl font-black uppercase leading-[1.1] md:leading-none tracking-tighter text-[var(--tx1-1)]">
+                Creating digital <span className="text-[var(--tx2)]">poetry</span> through code.
               </h1>
             </div>
             <div className="fadeRightAll relative left-[-100px] opacity-0 bg-white/5 backdrop-blur-xl border border-white/10  p-3 md:p-8 rounded-3xl shadow-2xl">
